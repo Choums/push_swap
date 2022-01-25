@@ -41,3 +41,21 @@ void	ft_swap_a(t_list *a)
 	a->next->content = tmp;
 	ft_print(SA);
 }
+
+void	ft_swap_b(t_list *b)
+{
+	char	*tmp;
+
+	if (!b->content || !b->next->content)
+		return ;
+	tmp = b->content;
+	b->content = b->next->content;
+	b->next->content = tmp;
+	ft_print(SB);
+}
+
+void	ft_swap_ss(t_list *a, t_list *b)
+{
+	ft_swap_a(a);
+	ft_swap_b(b);
+}

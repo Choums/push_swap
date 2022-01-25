@@ -35,9 +35,10 @@
 int		ft_check_args(char **av);
 int		ft_check_dup(char **av, char *num, size_t pos);
 void	ft_err(void);
-
 void	ft_print(char *msg);
+
 t_list	*ft_init_stack(char **value, int size);
 void	ft_swap_a(t_list *a);
+void    ft_swap_b(t_list *b);
 
 #endif

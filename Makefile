@@ -6,7 +6,7 @@ NAME		=	push_swap
 
 CC			=	clang
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	#-Wall -Wextra -Werror
 
 .c.o:
 				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
