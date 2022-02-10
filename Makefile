@@ -1,4 +1,4 @@
-SRCS		=	push_swap.c srcs/push_swap_utils.c srcs/stack_management.c
+SRCS		=	srcs/push_swap.c srcs/push_swap_utils.c srcs/stack_management.c
 
 OBJS		=	${SRCS:.c=.o}
 

@@ -38,7 +38,10 @@ void	ft_err(void);
 void	ft_print(char *msg);
 
 t_list	*ft_init_stack(char **value, int size);
-void	ft_swap_a(t_list *a);
-void    ft_swap_b(t_list *b);
+void	ft_swap_a(t_list **head_a);
+void    ft_swap_b(t_list **head_b);
+void	ft_swap_ss(t_list **head_a, t_list **head_b);
+
+void	ft_push_b(t_list **head_a, t_list **head_b);
 
 #endif
