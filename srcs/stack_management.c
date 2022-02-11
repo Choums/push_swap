@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 09:45:30 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/11 09:48:13 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_swap_ss(t_list **head_a, t_list **head_b)
 	ft_swap_b(head_b);
 }
 
-void	ft_push_b(t_list *a, t_list *b)
+void	ft_push_b(t_list **head_a, t_list **head_b)
 {
 	if (*head_b) //Cas de maillons present dans B
 	{
