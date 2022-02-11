@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 09:48:13 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/11 11:15:55 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*ft_init_stack(char **value, int size)
 	tmp = ft_lstnew(value[i]);
 	if (!tmp)
 		ft_err();
-	while (++i <= (size_t)size)
+	while (++i <= (size_t)size - 1)
 	{
 		ft_lstadd_back(&tmp, ft_lstnew(value[i]));
 		if (!tmp)
@@ -62,18 +62,22 @@ void	ft_swap_ss(t_list **head_a, t_list **head_b)
 
 void	ft_push_b(t_list **head_a, t_list **head_b)
 {
-	if (*head_b) //Cas de maillons present dans B
+	if (*head_a == NULL)
+		return ;
+	else if (*head_b) //Cas de maillons présent dans B
 	{
 		(*head_b)->previous = (*head_a);
-		(*head_a)->next->previous = NULL;
+		if (!((*head_a)->next == NULL)) //Cas où A n'a qu'un maillon
+			(*head_a)->next->previous = NULL;
 		*head_a = (*head_a)->next;
 		(*head_b)->previous->next = (*head_b);
 		*head_b = (*head_b)->previous;
 	}
-	else //Cas ou B n'a pas encore de maillon (init)
+	else if (*head_b == NULL) //Cas où B n'a pas encore de maillon (init)
 	{
 		*head_b = (*head_a);
-		(*head_a)->next->previous = NULL;
+		if (!((*head_a)->next == NULL)) //Cas où A n'a qu'un maillon
+			(*head_a)->next->previous = NULL;
 		*head_a = (*head_b)->next;
 		(*head_b)->next = NULL;
 	}

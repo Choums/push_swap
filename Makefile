@@ -1,12 +1,14 @@
-SRCS		=	srcs/push_swap.c srcs/push_swap_utils.c srcs/stack_management.c
+SRCS		=	srcs/push_swap.c srcs/push_swap_utils.c srcs/stack_management.c srcs/another_stack_management.c
 
 OBJS		=	${SRCS:.c=.o}
 
 NAME		=	push_swap
 
+LIB			=	./libft/libft.a
+
 CC			=	clang
 
-CFLAGS		=	#-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g
 
 .c.o:
 				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
@@ -15,7 +17,7 @@ RM			=	rm -f
 
 ${NAME}:		${OBJS}
 				${MAKE} -C ./libft
-				${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
+				${CC} ${CFLAGS} ${OBJS} ${LIB} -o ${NAME}
 
 all:			${NAME}
 

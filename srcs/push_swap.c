@@ -6,11 +6,29 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 09:34:24 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/11 11:17:02 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	printer(t_list **head_a, t_list **head_b)
+{
+	printf("\nstack A\n--------\n");
+	while ((*head_a))
+	{
+		printf("%s\n", (*head_a)->content);
+		(*head_a) = (*head_a)->next;
+	}
+	printf("--------\n");
+	printf("\nstack B\n--------\n");
+	while ((*head_b))
+	{
+		printf("%s\n", (*head_b)->content);
+		(*head_b) = (*head_b)->next;
+	}
+	printf("--------\n");
+}
 
 int	main(int ac, char **av)
 {
@@ -31,18 +49,9 @@ int	main(int ac, char **av)
 
 	ft_push_b(head_a, head_b);
 	ft_push_b(head_a, head_b);
+	ft_push_a(head_a, head_b);
+	ft_push_a(head_a, head_b);
+	printer(head_a, head_b);
 
-	printf("stack A\n-----\n");
-	while (a)
-	{
-		printf("%s\n", a->content);
-		a = a->next;
-	}
-	printf("\nstack B\n-----\n");
-	while (b)
-	{
-		printf("%s\n", b->content);
-		b = b->next;
-	}
 	return (0);
 }
