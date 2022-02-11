@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 11:15:55 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/11 12:32:55 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*ft_init_stack(char **value, int size)
 
 void	ft_swap_a(t_list **head_a)
 {
-	char	*tmp;
+	void	*tmp;
 
 	if (!(*head_a)->content || !(*head_a)->next->content)
 		return ;
@@ -44,7 +44,7 @@ void	ft_swap_a(t_list **head_a)
 
 void	ft_swap_b(t_list **head_b)
 {
-	char	*tmp;
+	void	*tmp;
 
 	if (!(*head_b)->content || !(*head_b)->next->content)
 		return ;

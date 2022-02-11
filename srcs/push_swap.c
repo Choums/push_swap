@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 11:17:02 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/11 12:31:11 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,8 @@ int	main(int ac, char **av)
 	b = NULL;
 	a = ft_init_stack(av, ac);
 
-	ft_push_b(head_a, head_b);
-	ft_push_b(head_a, head_b);
-	ft_push_a(head_a, head_b);
-	ft_push_a(head_a, head_b);
+	ft_rotate_a(head_a);
+
 	printer(head_a, head_b);
 
 	return (0);
