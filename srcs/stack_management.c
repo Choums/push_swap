@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/01/25 14:39:11 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/11 09:27:46 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	ft_swap_ss(t_list *a, t_list *b)
 	ft_swap_a(a);
 	ft_swap_b(b);
 }
-
 
 void	ft_push_b(t_list *a, t_list *b)
 {
