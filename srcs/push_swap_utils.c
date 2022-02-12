@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:37:27 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/12 08:52:31 by root             ###   ########.fr       */
+/*   Updated: 2022/02/12 09:27:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,24 @@ int	ft_check_dup(char **av, char *num, size_t pos)
 	return (1);
 }
 
-void	ft_lstfree(t_list **head_a, t_list **head_b)
+t_list	*ft_init_stack(char **value, int size)
 {
-	ft_lstclear(head_a, ft_del);
-	ft_lstclear(head_b, ft_del);
+	size_t	i;
+	t_list	*tmp;
+
+	i = 1;
+	tmp = ft_lstnew(value[i]);
+	if (!tmp)
+		ft_err();
+	while (++i <= (size_t)size - 1)
+	{
+		ft_lstadd_back(&tmp, ft_lstnew(value[i]));
+		if (!tmp)
+			ft_err();
+	}
+	return (tmp);
 }
+
 void	ft_print(char *msg)
 {
 	ft_putstr_fd(msg, STDOUT_FILENO);

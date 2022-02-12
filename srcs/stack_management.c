@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 12:32:55 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/12 09:28:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-t_list	*ft_init_stack(char **value, int size)
-{
-	size_t	i;
-	t_list	*tmp;
-
-	i = 1;
-	tmp = ft_lstnew(value[i]);
-	if (!tmp)
-		ft_err();
-	while (++i <= (size_t)size - 1)
-	{
-		ft_lstadd_back(&tmp, ft_lstnew(value[i]));
-		if (!tmp)
-			ft_err();
-	}
-	return (tmp);
-}
 
 void	ft_swap_a(t_list **head_a)
 {
@@ -82,4 +64,28 @@ void	ft_push_b(t_list **head_a, t_list **head_b)
 		(*head_b)->next = NULL;
 	}
 	ft_print(PB);
+}
+
+void	ft_push_a(t_list **head_a, t_list **head_b)
+{
+	if (*head_b == NULL)
+		return ;
+	if (*head_a)
+	{
+		(*head_a)->previous = (*head_b);
+		if (!((*head_b)->next == NULL)) //Cas où B n'a qu'un maillon
+			(*head_b)->next->previous = NULL;
+		*head_b = (*head_b)->next;
+		(*head_a)->previous->next = (*head_a);
+		*head_a = (*head_a)->previous;
+	}
+	else
+	{
+		*head_a = (*head_b);
+		if (!((*head_b)->next == NULL)) //Cas où B n'a qu'un maillon
+			(*head_b)->next->previous = NULL;
+		*head_b = (*head_a)->next;
+		(*head_a)->next = NULL;
+	}
+	ft_print(PA);
 }
