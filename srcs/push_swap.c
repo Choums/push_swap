@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/12 09:27:19 by root             ###   ########.fr       */
+/*   Updated: 2022/02/12 15:13:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ void	printer(t_list **head_a, t_list **head_b)
 	printf("--------\n");
 }
 
+void	ft_del(void *content)
+{
+	content = NULL;
+}
+
 void	ft_lstfree(t_list **head_a, t_list **head_b)
 {
 	ft_lstclear(head_a, ft_del);
@@ -57,9 +62,17 @@ int	main(int ac, char **av)
 		ft_putstr_fd(ERR, STDOUT_FILENO);
 		exit(EXIT_FAILURE);
 	}
-
+		
+	printer(head_a, head_b);
+	ft_push_b(head_a, head_b);
+	ft_push_b(head_a, head_b);
+	ft_push_b(head_a, head_b);
+	ft_push_b(head_a, head_b);
+	printer(head_a, head_b);
+	ft_rev_rotate_b(head_b);
 
 	printer(head_a, head_b);
+	
 	ft_lstfree(head_a, head_b);
 	return (0);
 }
