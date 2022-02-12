@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 12:17:38 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/12 08:52:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 
 int		ft_check_args(char **av);
 int		ft_check_dup(char **av, char *num, size_t pos);
+void	ft_lstfree(t_list **head_a, t_list **head_b);
 void	ft_err(void);
 void	ft_print(char *msg);
 

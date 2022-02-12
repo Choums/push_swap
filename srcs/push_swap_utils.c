@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:37:27 by chaidel           #+#    #+#             */
-/*   Updated: 2022/01/24 18:42:21 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/12 08:52:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ int	ft_check_dup(char **av, char *num, size_t pos)
 	return (1);
 }
 
+void	ft_lstfree(t_list **head_a, t_list **head_b)
+{
+	ft_lstclear(head_a, ft_del);
+	ft_lstclear(head_b, ft_del);
+}
 void	ft_print(char *msg)
 {
 	ft_putstr_fd(msg, STDOUT_FILENO);

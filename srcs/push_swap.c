@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 12:31:11 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/12 09:07:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,23 @@
 
 void	printer(t_list **head_a, t_list **head_b)
 {
+	t_list	*tmp;
+	t_list	*sec;
+	
+	tmp = (*head_a);
+	sec = (*head_b);
 	printf("\nstack A\n--------\n");
-	while ((*head_a))
+	while (tmp)
 	{
-		printf("%s\n", (*head_a)->content);
-		(*head_a) = (*head_a)->next;
+		printf("%s\n", tmp->content);
+		tmp = tmp->next;
 	}
 	printf("--------\n");
 	printf("\nstack B\n--------\n");
-	while ((*head_b))
+	while (sec)
 	{
-		printf("%s\n", (*head_b)->content);
-		(*head_b) = (*head_b)->next;
+		printf("%s\n", sec->content);
+		sec = sec->next;
 	}
 	printf("--------\n");
 }
@@ -37,6 +42,8 @@ int	main(int ac, char **av)
 	t_list	**head_a;
 	t_list	**head_b;
 
+	b = NULL;
+	a = ft_init_stack(av, ac);
 	head_a = &a;
 	head_b = &b;
 	if (!ft_check_args(av))
@@ -44,12 +51,9 @@ int	main(int ac, char **av)
 		ft_putstr_fd(ERR, STDOUT_FILENO);
 		exit(EXIT_FAILURE);
 	}
-	b = NULL;
-	a = ft_init_stack(av, ac);
 
-	ft_rotate_a(head_a);
 
 	printer(head_a, head_b);
-
+	ft_lstfree(head_a, head_b);
 	return (0);
 }
