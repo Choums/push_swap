@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/12 15:13:31 by root             ###   ########.fr       */
+/*   Updated: 2022/02/15 08:15:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ void	printer(t_list **head_a, t_list **head_b)
 	printf("\nstack A\n--------\n");
 	while (tmp)
 	{
-		printf("%s\n", tmp->content);
+		printf("%i\n", tmp->content);
 		tmp = tmp->next;
 	}
 	printf("--------\n");
 	printf("\nstack B\n--------\n");
 	while (sec)
 	{
-		printf("%s\n", sec->content);
+		printf("%i\n", sec->content);
 		sec = sec->next;
 	}
 	printf("--------\n");
 }
 
-void	ft_del(void *content)
+void	ft_del(int content)
 {
-	content = NULL;
+	content = 0;
 }
 
 void	ft_lstfree(t_list **head_a, t_list **head_b)
@@ -62,17 +62,10 @@ int	main(int ac, char **av)
 		ft_putstr_fd(ERR, STDOUT_FILENO);
 		exit(EXIT_FAILURE);
 	}
-		
-	printer(head_a, head_b);
-	ft_push_b(head_a, head_b);
-	ft_push_b(head_a, head_b);
-	ft_push_b(head_a, head_b);
-	ft_push_b(head_a, head_b);
-	printer(head_a, head_b);
-	ft_rev_rotate_b(head_b);
-
-	printer(head_a, head_b);
 	
+
+	
+	printer(head_a, head_b);	
 	ft_lstfree(head_a, head_b);
 	return (0);
 }

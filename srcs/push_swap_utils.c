@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:37:27 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/12 15:26:12 by root             ###   ########.fr       */
+/*   Updated: 2022/02/15 08:05:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ t_list	*ft_init_stack(char **value, int size)
 	t_list	*tmp;
 
 	i = 1;
-	tmp = ft_lstnew(value[i]);
+	tmp = ft_lstnew(ft_atoi(value[i]));
 	if (!tmp)
 		ft_err();
 	while (++i <= (size_t)size - 1)
 	{
-		ft_lstadd_back(&tmp, ft_lstnew(value[i]));
+		ft_lstadd_back(&tmp, ft_lstnew(ft_atoi(value[i])));
 		if (!tmp)
 			ft_err();
 	}

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/12 09:28:02 by root             ###   ########.fr       */
+/*   Updated: 2022/02/15 08:11:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_swap_a(t_list **head_a)
 {
-	void	*tmp;
+	int	tmp;
 
 	if (!(*head_a)->content || !(*head_a)->next->content)
 		return ;
@@ -26,7 +26,7 @@ void	ft_swap_a(t_list **head_a)
 
 void	ft_swap_b(t_list **head_b)
 {
-	void	*tmp;
+	int	tmp;
 
 	if (!(*head_b)->content || !(*head_b)->next->content)
 		return ;

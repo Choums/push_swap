@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:25:18 by root              #+#    #+#             */
-/*   Updated: 2022/02/12 15:04:35 by root             ###   ########.fr       */
+/*   Updated: 2022/02/15 08:12:01 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_rotate_a(t_list **head_a)
 {
 	t_list	*tmp;
-	void	*swap;
+	int		swap;
 	int		size;
 	
 	if (!(*head_a))
@@ -37,7 +37,7 @@ void	ft_rotate_a(t_list **head_a)
 void	ft_rotate_b(t_list **head_b)
 {
 	t_list	*tmp;
-	void	*swap;
+	int		swap;
 	int		size;
 
 	tmp = (*head_b);
@@ -64,7 +64,7 @@ void	ft_rotate_rr(t_list **head_a, t_list **head_b)
 void	ft_rev_rotate_a(t_list **head_a)
 {
 	t_list	*tmp;
-	void	*swap;
+	int		swap;
 	int		size;
 
 	if (!(*head_a))
@@ -85,7 +85,7 @@ void	ft_rev_rotate_a(t_list **head_a)
 void	ft_rev_rotate_b(t_list **head_b)
 {
 	t_list	*tmp;
-	void	*swap;
+	int		swap;
 	int		size;
 
 	if (!(*head_b))
