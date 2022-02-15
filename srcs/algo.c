@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/02/15 08:25:12 by root             ###   ########.fr       */
+/*   Updated: 2022/02/15 21:01:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	ft_find_smol(t_list **head_a, t_list **head_b)
 	size_t	pos;
 
 	pos = 0;
-	while (head_a) //Tant qu'il y a des nbr dans A
+	while (head_a)
 	{
 		i = pos + 1;
-		while () //Compare
+		while ()
 		{
 			i++;
 		}
