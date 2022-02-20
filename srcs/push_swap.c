@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/15 08:15:25 by root             ###   ########.fr       */
+/*   Updated: 2022/02/20 14:58:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,12 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	
-
-	
+	if (ft_lstsize((*head_a)) < 10)
+	{
+		ft_select_sort(head_a, head_b);
+	}
+	else
+		printf("too much args for me...\n");
 	printer(head_a, head_b);	
 	ft_lstfree(head_a, head_b);
 	return (0);

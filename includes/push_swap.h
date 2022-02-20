@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/12 15:08:20 by root             ###   ########.fr       */
+/*   Updated: 2022/02/20 14:58:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,9 @@ void	ft_rotate_b(t_list **head_b);
 void	ft_rotate_rr(t_list **head_a, t_list **head_b);
 void	ft_rev_rotate_a(t_list **head_a);
 void	ft_rev_rotate_b(t_list **head_b);
+
+void	ft_select_sort(t_list **head_a, t_list **head_b);
+void	ft_selective(t_list **head_a, t_list **head_b);
+int		ft_find_smol(t_list **head);
+
 #endif
