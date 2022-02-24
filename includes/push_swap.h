@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 11:44:28 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 12:23:06 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@
 # define RRR "rrr\n"
 # define ERR "Error\n"
 
+extern int	hit; // A supp.
+
 int		ft_check_args(char **av);
 int		ft_check_dup(char **av, char *num, size_t pos);
 void	ft_lstfree(t_list **head_a, t_list **head_b);
 void	ft_err(void);
-void	ft_print(char *msg);
+void	ft_print(char *msg); //A supp.
 t_list	*ft_init_stack(char **value, int size);
 
 void	ft_swap_a(t_list **head_a);

@@ -6,11 +6,16 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/02/24 12:10:14 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 13:11:49 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/*
+	Works for 3 nums.
+	By finding the smallest position, only a swap and a rev are needed for 2nd and 3rd num
+*/
 
 void	ft_lil_sort(t_list **head_a)
 {
@@ -67,6 +72,9 @@ int	ft_find_smol(t_list **head)
 	return (pos);
 }
 
+/*
+	Less than 50 nums, greedy on hits beyond
+*/
 
 void	ft_select_sort(t_list **head_a, t_list **head_b)
 {
@@ -105,5 +113,6 @@ void	ft_selective(t_list **head_a, t_list **head_b)
 			pos++;
 		}
 	}
-	ft_push_b(head_a, head_b);
+	if ((*head_a)->next)
+		ft_push_b(head_a, head_b);
 }
