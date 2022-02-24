@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 13:28:42 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 14:43:41 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ void	ft_lil_sort(t_list **head_a);
 void	ft_select_sort(t_list **head_a, t_list **head_b);
 void	ft_selective(t_list **head_a, t_list **head_b);
 int		ft_find_smol(t_list **head);
+
+void	ft_insert_sort(t_list **head_a, t_list **head_b);
 
 #endif

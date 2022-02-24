@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 13:33:14 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 15:55:25 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	main(int ac, char **av)
 		ft_lil_sort(head_a);
 	else if (ac - 1 > 3)
 		ft_select_sort(head_a, head_b);
+
 	ft_lstfree(head_a, head_b);
 	return (0);
 }
