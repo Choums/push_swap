@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/20 15:42:01 by root             ###   ########.fr       */
+/*   Updated: 2022/02/24 11:45:11 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	printer(t_list **head_a, t_list **head_b)
 {
 	t_list	*tmp;
 	t_list	*sec;
-	
+
 	tmp = (*head_a);
 	sec = (*head_b);
 	printf("\nstack A\n--------\n");
@@ -53,19 +53,17 @@ int	main(int ac, char **av)
 	t_list	**head_a;
 	t_list	**head_b;
 
+	if (!ft_check_args(av))
+		ft_err();
 	b = NULL;
 	a = ft_init_stack(av, ac);
 	head_a = &a;
 	head_b = &b;
-	if (!ft_check_args(av))
-	{
-		ft_putstr_fd(ERR, STDOUT_FILENO);
-		exit(EXIT_FAILURE);
-	}
-	
-	ft_select_sort(head_a, head_b);
-	
-	printer(head_a, head_b);	
+	if (ac - 1 <= 3)
+		ft_lil_sort(head_a);
+	else if (ac - 1 > 3 && ac - 1 < 100)
+		ft_select_sort(head_a, head_b);
+	printer(head_a, head_b);
 	ft_lstfree(head_a, head_b);
 	return (0);
 }

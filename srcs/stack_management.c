@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/15 08:11:29 by root             ###   ########.fr       */
+/*   Updated: 2022/02/24 11:03:35 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_swap_a(t_list **head_a)
 {
 	int	tmp;
 
-	if (!(*head_a)->content || !(*head_a)->next->content)
+	if (!(*head_a) || !(*head_a)->next)
 		return ;
 	tmp = (*head_a)->content;
 	(*head_a)->content = (*head_a)->next->content;
@@ -28,7 +28,7 @@ void	ft_swap_b(t_list **head_b)
 {
 	int	tmp;
 
-	if (!(*head_b)->content || !(*head_b)->next->content)
+	if (!(*head_b) || !(*head_b)->next)
 		return ;
 	tmp = (*head_b)->content;
 	(*head_b)->content = (*head_b)->next->content;

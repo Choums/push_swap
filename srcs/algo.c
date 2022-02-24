@@ -3,14 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/02/20 15:34:38 by root             ###   ########.fr       */
+/*   Updated: 2022/02/24 12:10:14 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_lil_sort(t_list **head_a)
+{
+	int		size;
+	int		pos;
+
+	pos = ft_find_smol(head_a);
+	size = ft_lstsize((*head_a));
+	if (size == 2)
+	{
+		if ((*head_a)->content > (*head_a)->next->content)
+			ft_swap_a(head_a);
+	}
+	else if (size == 3)
+	{
+		if (pos == 3)
+			ft_rev_rotate_a(head_a);
+		else if (pos == 2)
+			ft_swap_a(head_a);
+		if ((*head_a)->next->content > (*head_a)->next->next->content)
+		{
+			ft_rev_rotate_a(head_a);
+			ft_swap_a(head_a);
+		}
+	}
+}
 
 /*
 	Return:	position of the smallest on the stack

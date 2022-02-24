@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   another_stack_management.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:25:18 by root              #+#    #+#             */
-/*   Updated: 2022/02/15 08:12:01 by root             ###   ########.fr       */
+/*   Updated: 2022/02/24 09:56:46 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_rotate_a(t_list **head_a)
 	t_list	*tmp;
 	int		swap;
 	int		size;
-	
+
 	if (!(*head_a))
 		return ;
 	tmp = (*head_a);
