@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:25:18 by root              #+#    #+#             */
-/*   Updated: 2022/02/24 09:56:46 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 13:29:35 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_rotate_a(t_list **head_a)
 	ft_print(RA);
 }
 
-
 void	ft_rotate_b(t_list **head_b)
 {
 	t_list	*tmp;
@@ -52,7 +51,6 @@ void	ft_rotate_b(t_list **head_b)
 	}
 	ft_print(RB);
 }
-
 
 void	ft_rotate_rr(t_list **head_a, t_list **head_b)
 {

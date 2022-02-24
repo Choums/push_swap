@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:37:27 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 12:22:59 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 13:29:30 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ t_list	*ft_init_stack(char **value, int size)
 
 void	ft_print(char *msg)
 {
-	hit++; // A supp.
 	ft_putstr_fd(msg, STDOUT_FILENO);
 }
 

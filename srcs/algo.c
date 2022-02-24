@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/02/24 13:11:49 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 13:29:09 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 /*
 	Works for 3 nums.
-	By finding the smallest position, only a swap and a rev are needed for 2nd and 3rd num
+	By finding the smallest position,
+	only a swap and a rev are needed for 2nd and 3rd num
 */
 
 void	ft_lil_sort(t_list **head_a)
@@ -63,7 +64,7 @@ int	ft_find_smol(t_list **head)
 			current = tmp->content;
 		tmp = tmp->next;
 	}
-	tmp  = (*head);
+	tmp = (*head);
 	while (tmp->content != current)
 	{
 		tmp = tmp->next;

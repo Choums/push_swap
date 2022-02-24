@@ -2,7 +2,8 @@ SRCS		=	srcs/push_swap.c\
 				srcs/push_swap_utils.c\
 				srcs/stack_management.c\
 				srcs/another_stack_management.c\
-				srcs/algo.c
+				srcs/algo.c\
+				srcs/another_algo.c
 
 OBJS		=	${SRCS:.c=.o}
 

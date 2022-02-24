@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 12:16:24 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 13:29:52 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ void	ft_push_b(t_list **head_a, t_list **head_b)
 {
 	if (*head_a == NULL)
 		return ;
-	else if (*head_b) //Cas de maillons présent dans B
+	else if (*head_b)
 	{
 		(*head_b)->previous = (*head_a);
-		if (!((*head_a)->next == NULL)) //Cas où A n'a qu'un maillon
+		if (!((*head_a)->next == NULL))
 			(*head_a)->next->previous = NULL;
 		*head_a = (*head_a)->next;
 		(*head_b)->previous->next = (*head_b);
 		*head_b = (*head_b)->previous;
 	}
-	else if (*head_b == NULL) //Cas où B n'a pas encore de maillon (init)
+	else if (*head_b == NULL)
 	{
 		*head_b = (*head_a);
-		if (!((*head_a)->next == NULL)) //Cas où A n'a qu'un maillon
+		if (!((*head_a)->next == NULL))
 			(*head_a)->next->previous = NULL;
 		*head_a = (*head_b)->next;
 		(*head_b)->next = NULL;
@@ -73,7 +73,7 @@ void	ft_push_a(t_list **head_a, t_list **head_b)
 	if (*head_a)
 	{
 		(*head_a)->previous = (*head_b);
-		if (!((*head_b)->next == NULL)) //Cas où B n'a qu'un maillon
+		if (!((*head_b)->next == NULL))
 			(*head_b)->next->previous = NULL;
 		*head_b = (*head_b)->next;
 		(*head_a)->previous->next = (*head_a);
@@ -82,7 +82,7 @@ void	ft_push_a(t_list **head_a, t_list **head_b)
 	else
 	{
 		*head_a = (*head_b);
-		if (!((*head_b)->next == NULL)) //Cas où B n'a qu'un maillon
+		if (!((*head_b)->next == NULL))
 			(*head_b)->next->previous = NULL;
 		*head_b = (*head_a)->next;
 		(*head_a)->next = NULL;

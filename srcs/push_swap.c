@@ -6,13 +6,11 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 13:04:23 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/24 13:33:14 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int hit = 0; // A supp.
 
 void	printer(t_list **head_a, t_list **head_b)
 {
@@ -35,7 +33,6 @@ void	printer(t_list **head_a, t_list **head_b)
 		sec = sec->next;
 	}
 	printf("--------\n");
-	printf("total hits: %d\n", hit);
 }
 
 void	ft_del(int content)
@@ -64,9 +61,8 @@ int	main(int ac, char **av)
 	head_b = &b;
 	if (ac - 1 <= 3)
 		ft_lil_sort(head_a);
-	else if (ac - 1 > 3 && ac - 1 < 100)
+	else if (ac - 1 > 3)
 		ft_select_sort(head_a, head_b);
-	// printer(head_a, head_b);
 	ft_lstfree(head_a, head_b);
 	return (0);
 }
