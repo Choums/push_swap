@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/02/24 16:08:00 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/25 17:45:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,12 @@ int	ft_find_smol(t_list **head)
 void	ft_select_sort(t_list **head_a, t_list **head_b)
 {
 	int	iter;
-	int	pivot;
 
 	iter = ft_lstsize((*head_a));
-	if (iter <= 100)
-		pivot = 10 / iter;
-	else
-		pivot = 5 / iter;
-	while (pivot > 0)
+	while (iter > 0)
 	{
 		ft_selective(head_a, head_b);
-		pivot--;
+		iter--;
 	}
 	while ((*head_b))
 		ft_push_a(head_a, head_b);
