@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 15:55:25 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/28 09:10:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int hits = 0;
 
 void	printer(t_list **head_a, t_list **head_b)
 {
@@ -33,6 +35,7 @@ void	printer(t_list **head_a, t_list **head_b)
 		sec = sec->next;
 	}
 	printf("--------\n");
+	printf("total hits: %d\n", hits);
 }
 
 void	ft_del(int content)
@@ -63,7 +66,7 @@ int	main(int ac, char **av)
 		ft_lil_sort(head_a);
 	else if (ac - 1 > 3)
 		ft_select_sort(head_a, head_b);
-
+	printer(head_a, head_b);
 	ft_lstfree(head_a, head_b);
 	return (0);
 }

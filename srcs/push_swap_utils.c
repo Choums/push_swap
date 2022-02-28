@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:37:27 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 13:29:30 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/28 09:11:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_list	*ft_init_stack(char **value, int size)
 
 void	ft_print(char *msg)
 {
+	hits++;
 	ft_putstr_fd(msg, STDOUT_FILENO);
 }
 

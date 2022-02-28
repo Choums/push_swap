@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 14:43:41 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/28 09:11:05 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define RRB "rrb\n"
 # define RRR "rrr\n"
 # define ERR "Error\n"
+
+extern int hits;
 
 int		ft_check_args(char **av);
 int		ft_check_dup(char **av, char *num, size_t pos);
