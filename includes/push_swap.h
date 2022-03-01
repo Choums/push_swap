@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/01 17:09:58 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/01 19:49:23 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@
 extern int hits;
 void	printer(t_list **head_a, t_list **head_b);
 
+typedef struct s_lim
+{
+	int	pivot;
+	int	old_pivot;
+	int	iter;
+}	t_lim;
+
+void	ft_init_pivot(int size, t_lim *piv);
+
 int		ft_check_args(char **av);
 int		ft_check_dup(char **av, char *num, size_t pos);
 void	ft_lstfree(t_list **head_a, t_list **head_b);
@@ -61,9 +70,8 @@ int		ft_get_smol(t_list **head);
 int		ft_get_big(t_list **head);
 int		ft_get_pos(t_list **head, int value);
 
-
 void	ft_sort(t_list **head_a, t_list **head_b);
-void	ft_select(t_list **head_a, t_list **head_b);
+void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv);
 void	ft_pusher(t_list **head_a, t_list **head_b, int value);
 void	ft_get_final_pos(t_list **head, int i);
 void	ft_sortin_b(t_list **head_a, t_list **head_b);

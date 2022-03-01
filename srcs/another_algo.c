@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   another_algo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:32:03 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/01 17:26:27 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/01 19:55:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,44 @@
 
 void	ft_sort(t_list **head_a, t_list **head_b)
 {
-	int	i;
-	int	size;
-
+	int		i;
+	int		size;
+	t_lim	piv;
+	
 	size = ft_lstsize((*head_a));
+	ft_init_pivot(size, &piv);
 	i = 0;
 	while (++i <= size)
 		ft_get_final_pos(head_a, i);
 
-	while ()
+	while (piv.pivot >= 0)
 	{
-		ft_select(head_a, head_b);
+		ft_select(head_a, head_b, &piv);
+		piv.old_pivot = piv.pivot;
+		piv.iter++;
 	}
 }
 
-void	ft_select(t_list **head_a, t_list **head_b)
+void	ft_init_pivot(int size, t_lim *piv)
+{
+	piv->iter = 1;
+	piv->old_pivot = size;
+}
+
+void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv)
 {
 	int		size;
-	int		pivot;
 	t_list	*tmp;
 
 	size = ft_lstsize((*head_a));
 	if (size <= 100)
-		pivot = size - (size / 5 ) * i;
+		piv->pivot = size - (size / 5 ) * piv->iter;
 	else
-		pivot = size - (size / 10) * i;
+		piv->pivot = size - (size / 10) * piv->iter;
 	tmp = (*head_a);
 	while (tmp)
 	{
-		if (tmp->pos >= pivot)
+		if (tmp->pos >= piv->pivot)
 		{
 			ft_pusher(head_a, head_b, tmp->content);
 			tmp = (*head_a);
