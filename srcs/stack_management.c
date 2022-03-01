@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:37:38 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/24 13:29:52 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:46:58 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,32 @@
 void	ft_swap_a(t_list **head_a)
 {
 	int	tmp;
+	int	pos;
 
 	if (!(*head_a) || !(*head_a)->next)
 		return ;
 	tmp = (*head_a)->content;
+	pos = (*head_a)->pos;
 	(*head_a)->content = (*head_a)->next->content;
+	(*head_a)->pos = (*head_a)->next->pos;
 	(*head_a)->next->content = tmp;
+	(*head_a)->next->pos = pos;
 	ft_print(SA);
 }
 
 void	ft_swap_b(t_list **head_b)
 {
 	int	tmp;
+	int	pos;
 
 	if (!(*head_b) || !(*head_b)->next)
 		return ;
 	tmp = (*head_b)->content;
+	pos = (*head_b)->pos;
 	(*head_b)->content = (*head_b)->next->content;
+	(*head_b)->pos = (*head_b)->next->pos;
 	(*head_b)->next->content = tmp;
+	(*head_b)->next->pos = pos;
 	ft_print(SB);
 }
 

@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:25:18 by root              #+#    #+#             */
-/*   Updated: 2022/02/24 13:29:35 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:44:26 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_rotate_a(t_list **head_a)
 {
 	t_list	*tmp;
 	int		swap;
+	int		fpos;
 	int		size;
 
 	if (!(*head_a))
@@ -25,8 +26,11 @@ void	ft_rotate_a(t_list **head_a)
 	while (size - 1 > 0)
 	{
 		swap = tmp->next->content;
+		fpos = tmp->next->pos;
 		tmp->next->content = tmp->content;
+		tmp->next->pos = tmp->pos;
 		tmp->content = swap;
+		tmp->pos = fpos;
 		tmp = tmp->next;
 		size--;
 	}
@@ -37,6 +41,7 @@ void	ft_rotate_b(t_list **head_b)
 {
 	t_list	*tmp;
 	int		swap;
+	int		fpos;
 	int		size;
 
 	tmp = (*head_b);
@@ -44,8 +49,11 @@ void	ft_rotate_b(t_list **head_b)
 	while (size - 1)
 	{
 		swap = tmp->next->content;
+		fpos = tmp->next->pos;
 		tmp->next->content = tmp->content;
+		tmp->next->pos = tmp->pos;
 		tmp->content = swap;
+		tmp->pos = fpos;
 		tmp = tmp->next;
 		size--;
 	}
@@ -63,6 +71,7 @@ void	ft_rev_rotate_a(t_list **head_a)
 {
 	t_list	*tmp;
 	int		swap;
+	int		fpos;
 	int		size;
 
 	if (!(*head_a))
@@ -72,8 +81,11 @@ void	ft_rev_rotate_a(t_list **head_a)
 	while (size - 1 > 0)
 	{
 		swap = tmp->previous->content;
+		fpos = tmp->previous->pos;
 		tmp->previous->content = tmp->content;
+		tmp->previous->pos = tmp->pos;
 		tmp->content = swap;
+		tmp->pos = fpos;
 		tmp = tmp->previous;
 		size--;
 	}
@@ -84,6 +96,7 @@ void	ft_rev_rotate_b(t_list **head_b)
 {
 	t_list	*tmp;
 	int		swap;
+	int		fpos;
 	int		size;
 
 	if (!(*head_b))
@@ -93,8 +106,11 @@ void	ft_rev_rotate_b(t_list **head_b)
 	while (size - 1 > 0)
 	{
 		swap = tmp->previous->content;
+		fpos = tmp->previous->pos;
 		tmp->previous->content = tmp->content;
+		tmp->previous->pos = tmp->pos;
 		tmp->content = swap;
+		tmp->pos = fpos;
 		tmp = tmp->previous;
 		size--;
 	}

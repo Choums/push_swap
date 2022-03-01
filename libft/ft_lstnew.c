@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:10 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/15 08:10:00 by root             ###   ########.fr       */
+/*   Updated: 2022/03/01 15:15:13 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_list	*ft_lstnew(int content)
 	another = malloc(sizeof(*another));
 	if (!another)
 		return (NULL);
+	another->pos = 0;
 	another->content = content;
 	another->next = NULL;
 	another->previous = NULL;
