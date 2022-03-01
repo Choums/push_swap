@@ -1,4 +1,9 @@
-SRCS		=	srcs/push_swap.c srcs/push_swap_utils.c srcs/stack_management.c srcs/another_stack_management.c
+SRCS		=	srcs/push_swap.c\
+				srcs/push_swap_utils.c\
+				srcs/stack_management.c\
+				srcs/another_stack_management.c\
+				srcs/algo.c\
+				srcs/another_algo.c
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -8,7 +13,7 @@ LIB			=	./libft/libft.a
 
 CC			=	clang
 
-CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS		=	-Wall -Wextra -Werror
 
 .c.o:
 				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

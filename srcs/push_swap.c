@@ -6,28 +6,47 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/11 12:31:11 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/01 12:42:59 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int hits = 0;
+
 void	printer(t_list **head_a, t_list **head_b)
 {
+	t_list	*tmp;
+	t_list	*sec;
+
+	tmp = (*head_a);
+	sec = (*head_b);
 	printf("\nstack A\n--------\n");
-	while ((*head_a))
+	while (tmp)
 	{
-		printf("%s\n", (*head_a)->content);
-		(*head_a) = (*head_a)->next;
+		printf("%i\n", tmp->content);
+		tmp = tmp->next;
 	}
 	printf("--------\n");
 	printf("\nstack B\n--------\n");
-	while ((*head_b))
+	while (sec)
 	{
-		printf("%s\n", (*head_b)->content);
-		(*head_b) = (*head_b)->next;
+		printf("%i\n", sec->content);
+		sec = sec->next;
 	}
 	printf("--------\n");
+	printf("total hits: %d\n", hits);
+}
+
+void	ft_del(int content)
+{
+	content = 0;
+}
+
+void	ft_lstfree(t_list **head_a, t_list **head_b)
+{
+	ft_lstclear(head_a, ft_del);
+	ft_lstclear(head_b, ft_del);
 }
 
 int	main(int ac, char **av)
@@ -37,19 +56,17 @@ int	main(int ac, char **av)
 	t_list	**head_a;
 	t_list	**head_b;
 
-	head_a = &a;
-	head_b = &b;
 	if (!ft_check_args(av))
-	{
-		ft_putstr_fd(ERR, STDOUT_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		ft_err();
 	b = NULL;
 	a = ft_init_stack(av, ac);
-
-	ft_rotate_a(head_a);
-
+	head_a = &a;
+	head_b = &b;
+	if (ac - 1 <= 3)
+		ft_lil_sort(head_a);
+	else if (ac - 1 > 3)
+		ft_div_sort(head_a, head_b);
 	printer(head_a, head_b);
-
+	ft_lstfree(head_a, head_b);
 	return (0);
 }
