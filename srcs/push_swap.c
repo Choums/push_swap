@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/01 16:23:56 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/02 09:06:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	printer(t_list **head_a, t_list **head_b)
 	printf("\nstack A\n--------|\n");
 	while (tmp)
 	{
-		printf("  %i\t| pos: %d \n", tmp->content, tmp->pos);
+		printf("   %i\t| pos: %d \n", tmp->content, tmp->pos);
 		tmp = tmp->next;
 	}
 	printf("--------|\n");
 	printf("\nstack B\n--------|\n");
 	while (sec)
 	{
-		printf("  %i\t| pos: %d\n", sec->content, sec->pos);
+		printf("   %i\t| pos: %d\n", sec->content, sec->pos);
 		sec = sec->next;
 	}
 	printf("--------|\n");
@@ -62,7 +62,6 @@ int	main(int ac, char **av)
 	a = ft_init_stack(av, ac);
 	head_a = &a;
 	head_b = &b;
-	printer(head_a, head_b);
 	if (ac - 1 <= 3)
 		ft_lil_sort(head_a);
 	else if (ac - 1 > 3)

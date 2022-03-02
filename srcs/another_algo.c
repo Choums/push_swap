@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:32:03 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/01 19:55:09 by root             ###   ########.fr       */
+/*   Updated: 2022/03/02 09:36:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ void	ft_sort(t_list **head_a, t_list **head_b)
 	int		i;
 	int		size;
 	t_lim	piv;
-	
+
 	size = ft_lstsize((*head_a));
 	ft_init_pivot(size, &piv);
 	i = 0;
 	while (++i <= size)
 		ft_get_final_pos(head_a, i);
-
-	while (piv.pivot >= 0)
+	while (piv.old_pivot > 0)
 	{
+		printer(head_a, head_b);
 		ft_select(head_a, head_b, &piv);
 		piv.old_pivot = piv.pivot;
-		piv.iter++;
+		piv.iter++;	
 	}
 }
 
@@ -45,15 +45,17 @@ void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv)
 
 	size = ft_lstsize((*head_a));
 	if (size <= 100)
-		piv->pivot = size - (size / 5 ) * piv->iter;
+		piv->pivot = size - (size / 5) * piv->iter;
 	else
 		piv->pivot = size - (size / 10) * piv->iter;
 	tmp = (*head_a);
 	while (tmp)
 	{
-		if (tmp->pos >= piv->pivot)
+		if (tmp->pos > piv->pivot && tmp->pos <= piv->old_pivot)
 		{
+			printf("pivot: %d\nold: %d\niter: %d\n", piv->pivot, piv->old_pivot, piv->iter);
 			ft_pusher(head_a, head_b, tmp->content);
+			printer(head_a, head_b);
 			tmp = (*head_a);
 		}
 		else
@@ -74,7 +76,7 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b)
 	{
 		while (pos > 1 && size > 1)
 		{
-			ft_rotate_a(head_b);
+			ft_rotate_b(head_b);
 			pos--;
 		}
 	}
@@ -82,11 +84,11 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b)
 	{
 		while (pos <= size && size > 1)
 		{
-			ft_rev_rotate_a(head_b);
+			ft_rev_rotate_b(head_b);
 			pos++;
 		}
 	}
-	ft_push_a(head_a, head_b);
+	// ft_push_a(head_a, head_b);
 }
 
 void	ft_pusher(t_list **head_a, t_list **head_b, int value)
@@ -130,7 +132,6 @@ int	ft_get_pos(t_list **head, int value)
 	}
 	return (pos);
 }
-
 
 void	ft_get_final_pos(t_list **head, int i)
 {

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/01 19:49:23 by root             ###   ########.fr       */
+/*   Updated: 2022/03/02 09:26:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 # define RRR "rrr\n"
 # define ERR "Error\n"
 
-extern int hits;
-void	printer(t_list **head_a, t_list **head_b);
+extern int hits; // A supp.
+void	printer(t_list **head_a, t_list **head_b); // A supp.
 
 typedef struct s_lim
 {
