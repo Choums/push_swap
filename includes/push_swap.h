@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/02 09:26:58 by root             ###   ########.fr       */
+/*   Updated: 2022/03/04 08:14:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int		ft_get_pos(t_list **head, int value);
 void	ft_sort(t_list **head_a, t_list **head_b);
 void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv);
 void	ft_pusher(t_list **head_a, t_list **head_b, int value);
+void	ft_prep(t_list **head_a, t_lim *piv);
 void	ft_get_final_pos(t_list **head, int i);
-void	ft_sortin_b(t_list **head_a, t_list **head_b);
+void	ft_sortin_b(t_list **head_a, t_list **head_b, t_lim *piv);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:32:03 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/02 09:36:17 by root             ###   ########.fr       */
+/*   Updated: 2022/03/04 08:26:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_sort(t_list **head_a, t_list **head_b)
 		printer(head_a, head_b);
 		ft_select(head_a, head_b, &piv);
 		piv.old_pivot = piv.pivot;
-		piv.iter++;	
+		piv.iter++;
 	}
 }
 
@@ -37,6 +37,7 @@ void	ft_init_pivot(int size, t_lim *piv)
 	piv->iter = 1;
 	piv->old_pivot = size;
 }
+
 
 void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv)
 {
@@ -62,10 +63,10 @@ void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv)
 			tmp = tmp->next;
 	}
 	while ((*head_b))
-		ft_sortin_b(head_a, head_b);
+		ft_sortin_b(head_a, head_b, piv);
 }
 
-void	ft_sortin_b(t_list **head_a, t_list **head_b)
+void	ft_sortin_b(t_list **head_a, t_list **head_b, t_lim *piv)
 {
 	int	size;
 	int	pos;
@@ -88,7 +89,41 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b)
 			pos++;
 		}
 	}
-	// ft_push_a(head_a, head_b);
+	if (piv->iter > 1)
+		ft_prep(head_a, piv);
+	ft_push_a(head_a, head_b);
+}
+
+void	ft_prep(t_list **head_a, t_lim *piv)
+{
+	int		pos;
+	int		size;
+	t_list	*tmp;
+
+	tmp = (*head_a);
+	while (tmp->pos != piv->old_pivot + 1)
+	{
+		printf("iter=%d  pos=%d  old=%d\n", piv->iter, tmp->pos, piv->old_pivot);	
+		tmp = tmp->next;
+	}
+	pos = ft_get_pos(head_a, tmp->content);
+	size = ft_lstsize((*head_a));
+	if (pos <= size / 2)
+	{
+		while (pos > 1 && size > 1)
+		{
+			ft_rotate_a(head_a);
+			pos--;
+		}
+	}
+	else
+	{
+		while (pos <= size && size > 1)
+		{
+			ft_rev_rotate_a(head_a);
+			pos++;
+		}
+	}
 }
 
 void	ft_pusher(t_list **head_a, t_list **head_b, int value)
