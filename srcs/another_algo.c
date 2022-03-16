@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:32:03 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/04 08:26:27 by root             ###   ########.fr       */
+/*   Updated: 2022/03/16 15:01:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,16 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b, t_lim *piv)
 		ft_prep(head_a, piv);
 	ft_push_a(head_a, head_b);
 }
+
+/*
+				Preparer la stack A a recvoir les blocs trier depuis B
+				(Debute apres la 1ere iteration)
+	------------------------------------------------------------------
+	Objectif ->	Trouve la value avec une pos egale au old_pivot
+				Rotate la stack A pour que la dite value soit en pole position
+				Enfin le bloc trier depuis B est push dans A
+	
+*/
 
 void	ft_prep(t_list **head_a, t_lim *piv)
 {
