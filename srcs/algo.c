@@ -103,42 +103,43 @@ int	ft_get_big(t_list **head)
 	Less than 50 nums, greedy on hits beyond
 */
 
-// void	ft_select_sort(t_list **head_a, t_list **head_b)
-// {
-// 	int	iter;
+void	ft_select_sort(t_list **head_a, t_list **head_b)
+{
+	int	iter;
 
-// 	iter = ft_lstsize((*head_a));
-// 	while (iter > 0)
-// 	{
-// 		ft_selective(head_a, head_b);
-// 		iter--;
-// 	}
-// 	while ((*head_b))
-// 		ft_push_a(head_a, head_b);
-// }
+	iter = ft_lstsize((*head_a));
+	while (iter > 0)
+	{
+		ft_selective(head_a, head_b);
+		iter--;
+	}
+	while ((*head_b))
+		ft_push_a(head_a, head_b);
+}
 
-// void	ft_selective(t_list **head_a, t_list **head_b)
-// {
-// 	int	size;
+void	ft_selective(t_list **head_a, t_list **head_b)
+{
+	int	size;
+	int	pos;
 
-
-// 	size = ft_lstsize((*head_a));
-// 	if (pos <= size / 2)
-// 	{
-// 		while (pos > 1 && size > 1)
-// 		{
-// 			ft_rotate_a(head_a);
-// 			pos--;
-// 		}
-// 	}
-// 	else
-// 	{
-// 		while (pos <= size && size > 1)
-// 		{
-// 			ft_rev_rotate_a(head_a);
-// 			pos++;
-// 		}
-// 	}
-// 	if ((*head_a)->next)
-// 		ft_push_b(head_a, head_b);
-// }
+	pos = ft_get_smol(head_a);
+	size = ft_lstsize((*head_a));
+	if (pos <= size / 2)
+	{
+		while (pos > 1 && size > 1)
+		{
+			ft_rotate_a(head_a);
+			pos--;
+		}
+	}
+	else
+	{
+		while (pos <= size && size > 1)
+		{
+			ft_rev_rotate_a(head_a);
+			pos++;
+		}
+	}
+	if ((*head_a)->next)
+		ft_push_b(head_a, head_b);
+}

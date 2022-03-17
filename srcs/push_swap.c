@@ -64,9 +64,11 @@ int	main(int ac, char **av)
 	head_b = &b;
 	if (ac - 1 <= 3)
 		ft_lil_sort(head_a);
-	else if (ac - 1 > 3)
+	else if (ac - 1 > 3 && ac - 1 < 50)
+		ft_select_sort(head_a, head_b);
+	else 
 		ft_sort(head_a, head_b);
-	printer(head_a, head_b);
+	// printer(head_a, head_b);
 	ft_lstfree(head_a, head_b);
 	return (0);
 }

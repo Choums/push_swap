@@ -75,6 +75,9 @@ void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv);
 void	ft_pusher(t_list **head_a, t_list **head_b, int value);
 void	ft_prep(t_list **head_a, t_lim *piv);
 void	ft_get_final_pos(t_list **head, int i);
-void	ft_sortin_b(t_list **head_a, t_list **head_b, t_lim *piv);
+void	ft_sortin_b(t_list **head_a, t_list **head_b);
+
+void	ft_select_sort(t_list **head_a, t_list **head_b);
+void	ft_selective(t_list **head_a, t_list **head_b);
 
 #endif

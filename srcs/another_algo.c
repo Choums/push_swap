@@ -25,7 +25,7 @@ void	ft_sort(t_list **head_a, t_list **head_b)
 		ft_get_final_pos(head_a, i);
 	while (piv.old_pivot > 0)
 	{
-		printer(head_a, head_b);
+		// printer(head_a, head_b);
 		ft_select(head_a, head_b, &piv);
 		piv.old_pivot = piv.pivot;
 		piv.iter++;
@@ -54,19 +54,21 @@ void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv)
 	{
 		if (tmp->pos > piv->pivot && tmp->pos <= piv->old_pivot)
 		{
-			printf("pivot: %d\nold: %d\niter: %d\n", piv->pivot, piv->old_pivot, piv->iter);
+			// printf("pivot: %d\nold: %d\niter: %d\n", piv->pivot, piv->old_pivot, piv->iter);
 			ft_pusher(head_a, head_b, tmp->content);
-			printer(head_a, head_b);
+			// printer(head_a, head_b);
 			tmp = (*head_a);
 		}
 		else
 			tmp = tmp->next;
 	}
+	if (piv->iter > 1)
+		ft_prep(head_a, piv);
 	while ((*head_b))
-		ft_sortin_b(head_a, head_b, piv);
+		ft_sortin_b(head_a, head_b);
 }
 
-void	ft_sortin_b(t_list **head_a, t_list **head_b, t_lim *piv)
+void	ft_sortin_b(t_list **head_a, t_list **head_b)
 {
 	int	size;
 	int	pos;
@@ -89,8 +91,6 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b, t_lim *piv)
 			pos++;
 		}
 	}
-	if (piv->iter > 1)
-		ft_prep(head_a, piv);
 	ft_push_a(head_a, head_b);
 }
 
@@ -101,7 +101,8 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b, t_lim *piv)
 	Objectif ->	Trouve la value avec une pos egale au old_pivot
 				Rotate la stack A pour que la dite value soit en pole position
 				Enfin le bloc trier depuis B est push dans A
-	
+	------------------------------------------------------------------
+
 */
 
 void	ft_prep(t_list **head_a, t_lim *piv)
@@ -113,7 +114,7 @@ void	ft_prep(t_list **head_a, t_lim *piv)
 	tmp = (*head_a);
 	while (tmp->pos != piv->old_pivot + 1)
 	{
-		printf("iter=%d  pos=%d  old=%d\n", piv->iter, tmp->pos, piv->old_pivot);	
+		// printf("iter=%d  pos=%d  old=%d\n", piv->iter, tmp->pos, piv->old_pivot);	
 		tmp = tmp->next;
 	}
 	pos = ft_get_pos(head_a, tmp->content);
