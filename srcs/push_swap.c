@@ -49,6 +49,10 @@ void	ft_lstfree(t_list **head_a, t_list **head_b)
 	ft_lstclear(head_b, ft_del);
 }
 
+/*
+	python3 pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
+*/
+
 int	main(int ac, char **av)
 {
 	t_list	*a;
