@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/03/21 23:22:14 by root             ###   ########.fr       */
+/*   Updated: 2022/03/21 23:48:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,6 @@ void	ft_fiv_prep(t_list **head_a, t_list **head_b)
 	}
 	ft_push_b(head_a, head_b);
 }
-
-/*
-	Return:	position of the smallest on the stack
-*/
 
 int	ft_get_smol(t_list **head)
 {
