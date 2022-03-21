@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/03/21 19:47:17 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/21 23:22:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,8 @@ void	ft_lil_sort(t_list **head_a)
 {
 	int		size;
 	int		pos;
-	int		i;
 
 	size = ft_lstsize((*head_a));
-	i = 0;
-	while (++i <= size)
-		ft_get_final_pos(head_a, i);
 	pos = ft_get_smol(head_a);
 	if (size == 2 && (*head_a)->content > (*head_a)->next->content)
 		ft_swap_a(head_a);
