@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 07:59:42 by root              #+#    #+#             */
-/*   Updated: 2022/03/01 17:08:17 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/21 19:47:17 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ void	ft_lil_sort(t_list **head_a)
 {
 	int		size;
 	int		pos;
+	int		i;
 
-	pos = ft_get_smol(head_a);
 	size = ft_lstsize((*head_a));
-	if (size == 2)
-	{
-		if ((*head_a)->content > (*head_a)->next->content)
-			ft_swap_a(head_a);
-	}
+	i = 0;
+	while (++i <= size)
+		ft_get_final_pos(head_a, i);
+	pos = ft_get_smol(head_a);
+	if (size == 2 && (*head_a)->content > (*head_a)->next->content)
+		ft_swap_a(head_a);
 	else if (size == 3)
 	{
 		if (pos == 3)
@@ -45,8 +46,63 @@ void	ft_lil_sort(t_list **head_a)
 }
 
 /*
-	Return:	position of the smallest on the stack
+	1-	Push 2 premier num dans B
+	2-	Appliquer lil_sort sur A
+	-----------------------------
+	Push les num de B:
+		rotate A pour que le top soit sup. au num
+	Enfin rotate tout A pour aligner les nums
+	(size / 2)
+*/
 
+void	ft_fiv_sort(t_list **head_a, t_list **head_b)
+{
+	int		size;
+	int		pos;
+	t_list	*tmp;
+	int		i;
+
+	size = ft_lstsize((*head_a));
+	i = 0;
+	while (++i <= size)
+		ft_get_final_pos(head_a, i);
+	if (ft_is_sorted(head_a))
+		return ;
+	while (size-- > 3)
+		ft_fiv_prep(head_a, head_b);
+	ft_lil_sort(head_a);
+	while ((*head_b))
+		ft_push_a(head_a, head_b);
+}
+
+void	ft_fiv_prep(t_list **head_a, t_list **head_b)
+{
+	int	pos;
+	int	size;
+
+	size = ft_lstsize((*head_a));
+	pos = ft_get_smol(head_a);
+	if (pos <= size / 2)
+	{
+		while (pos > 1 && size > 1)
+		{
+			ft_rotate_a(head_a);
+			pos--;
+		}
+	}
+	else
+	{
+		while (pos <= size && size > 1)
+		{
+			ft_rev_rotate_a(head_a);
+			pos++;
+		}
+	}
+	ft_push_b(head_a, head_b);
+}
+
+/*
+	Return:	position of the smallest on the stack
 */
 
 int	ft_get_smol(t_list **head)
@@ -97,49 +153,4 @@ int	ft_get_big(t_list **head)
 		pos++;
 	}
 	return (pos);
-}
-
-/*
-	Less than 50 nums, greedy on hits beyond
-*/
-
-void	ft_select_sort(t_list **head_a, t_list **head_b)
-{
-	int	iter;
-
-	iter = ft_lstsize((*head_a));
-	while (iter > 0)
-	{
-		ft_selective(head_a, head_b);
-		iter--;
-	}
-	while ((*head_b))
-		ft_push_a(head_a, head_b);
-}
-
-void	ft_selective(t_list **head_a, t_list **head_b)
-{
-	int	size;
-	int	pos;
-
-	pos = ft_get_smol(head_a);
-	size = ft_lstsize((*head_a));
-	if (pos <= size / 2)
-	{
-		while (pos > 1 && size > 1)
-		{
-			ft_rotate_a(head_a);
-			pos--;
-		}
-	}
-	else
-	{
-		while (pos <= size && size > 1)
-		{
-			ft_rev_rotate_a(head_a);
-			pos++;
-		}
-	}
-	if ((*head_a)->next)
-		ft_push_b(head_a, head_b);
 }

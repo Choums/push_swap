@@ -21,16 +21,19 @@ int	ft_check_args(char **av)
 	while (av[++i])
 	{
 		s = 0;
-		if (av[i][s] == '-')
-			s++;
+		if (av[i][s] == '-' || av[i][s] == '+')
+			if (!av[i][++s])
+				return (0);
 		while (av[i][s])
 		{
 			if (!ft_isdigit(av[i][s]))
 				return (0);
-			if (av[i][s] == '0' && av[i][s + 1] == '0')
+			if (av[i][0] == '0' && av[i][1] == '0')
 				return (0);
 			s++;
 		}
+		if (ft_strlen(av[i]) > 2 && (ft_atoi(av[i]) == -1 || !ft_atoi(av[i])))
+			return (0);
 		if (!ft_check_dup(av, av[i], i))
 			return (0);
 	}
@@ -68,12 +71,11 @@ t_list	*ft_init_stack(char **value, int size)
 
 void	ft_print(char *msg)
 {
-	hits++;
 	ft_putstr_fd(msg, STDOUT_FILENO);
 }
 
 void	ft_err(void)
 {
-	ft_putstr_fd(ERR, STDOUT_FILENO);
+	ft_putstr_fd(ERR, STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }

@@ -3,39 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:33 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/02 09:06:49 by root             ###   ########.fr       */
+/*   Updated: 2022/03/21 19:37:51 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int hits = 0;
-
-void	printer(t_list **head_a, t_list **head_b)
+int	ft_is_sorted(t_list **head)
 {
 	t_list	*tmp;
-	t_list	*sec;
+	int		size;
+	int		i;
 
-	tmp = (*head_a);
-	sec = (*head_b);
-	printf("\nstack A\n--------|\n");
-	while (tmp)
+	i = 0;
+	size = ft_lstsize((*head));
+	tmp = (*head);
+	while (tmp && i < size - 1)
 	{
-		printf("   %i\t| pos: %d \n", tmp->content, tmp->pos);
+		if (tmp->pos > tmp->next->pos)
+			return (0);
 		tmp = tmp->next;
+		i++;
 	}
-	printf("--------|\n");
-	printf("\nstack B\n--------|\n");
-	while (sec)
-	{
-		printf("   %i\t| pos: %d\n", sec->content, sec->pos);
-		sec = sec->next;
-	}
-	printf("--------|\n");
-	printf("total hits: %d\n\n\n", hits);
+	return (1);
 }
 
 void	ft_del(int content)
@@ -49,10 +42,6 @@ void	ft_lstfree(t_list **head_a, t_list **head_b)
 	ft_lstclear(head_b, ft_del);
 }
 
-/*
-	python3 pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
-*/
-
 int	main(int ac, char **av)
 {
 	t_list	*a;
@@ -60,7 +49,7 @@ int	main(int ac, char **av)
 	t_list	**head_a;
 	t_list	**head_b;
 
-	if (!ft_check_args(av))
+	if (ac == 1 || !ft_check_args(av))
 		ft_err();
 	b = NULL;
 	a = ft_init_stack(av, ac);
@@ -68,11 +57,10 @@ int	main(int ac, char **av)
 	head_b = &b;
 	if (ac - 1 <= 3)
 		ft_lil_sort(head_a);
-	else if (ac - 1 > 3 && ac - 1 < 50)
-		ft_select_sort(head_a, head_b);
-	else 
+	else if (ac - 1 <= 5)
+		ft_fiv_sort(head_a, head_b);
+	else
 		ft_sort(head_a, head_b);
-	// printer(head_a, head_b);
 	ft_lstfree(head_a, head_b);
 	return (0);
 }

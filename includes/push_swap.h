@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/04 08:14:24 by root             ###   ########.fr       */
+/*   Updated: 2022/03/21 19:41:27 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@
 # define RRB "rrb\n"
 # define RRR "rrr\n"
 # define ERR "Error\n"
-
-extern int hits; // A supp.
-void	printer(t_list **head_a, t_list **head_b); // A supp.
 
 typedef struct s_lim
 {
@@ -65,10 +62,14 @@ void	ft_rev_rotate_a(t_list **head_a);
 void	ft_rev_rotate_b(t_list **head_b);
 
 void	ft_lil_sort(t_list **head_a);
+void	ft_fiv_sort(t_list **head_a, t_list **head_b);
+void	ft_fiv_prep(t_list **head_a, t_list **head_b);
 
 int		ft_get_smol(t_list **head);
 int		ft_get_big(t_list **head);
 int		ft_get_pos(t_list **head, int value);
+void	ft_get_final_pos(t_list **head, int i);
+void	ft_init_pivot(int size, t_lim *piv);
 
 void	ft_sort(t_list **head_a, t_list **head_b);
 void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv);
@@ -77,7 +78,6 @@ void	ft_prep(t_list **head_a, t_lim *piv);
 void	ft_get_final_pos(t_list **head, int i);
 void	ft_sortin_b(t_list **head_a, t_list **head_b);
 
-void	ft_select_sort(t_list **head_a, t_list **head_b);
-void	ft_selective(t_list **head_a, t_list **head_b);
+int		ft_is_sorted(t_list **head);
 
 #endif

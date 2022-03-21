@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   another_algo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:32:03 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/16 15:01:36 by root             ###   ########.fr       */
+/*   Updated: 2022/03/21 19:36:34 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,15 @@ void	ft_sort(t_list **head_a, t_list **head_b)
 	i = 0;
 	while (++i <= size)
 		ft_get_final_pos(head_a, i);
+	if (ft_is_sorted(head_a))
+		return ;
 	while (piv.old_pivot > 0)
 	{
-		// printer(head_a, head_b);
 		ft_select(head_a, head_b, &piv);
 		piv.old_pivot = piv.pivot;
 		piv.iter++;
 	}
 }
-
-void	ft_init_pivot(int size, t_lim *piv)
-{
-	piv->iter = 1;
-	piv->old_pivot = size;
-}
-
 
 void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv)
 {
@@ -54,9 +48,7 @@ void	ft_select(t_list **head_a, t_list **head_b, t_lim *piv)
 	{
 		if (tmp->pos > piv->pivot && tmp->pos <= piv->old_pivot)
 		{
-			// printf("pivot: %d\nold: %d\niter: %d\n", piv->pivot, piv->old_pivot, piv->iter);
 			ft_pusher(head_a, head_b, tmp->content);
-			// printer(head_a, head_b);
 			tmp = (*head_a);
 		}
 		else
@@ -101,8 +93,6 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b)
 	Objectif ->	Trouve la value avec une pos egale au old_pivot
 				Rotate la stack A pour que la dite value soit en pole position
 				Enfin le bloc trier depuis B est push dans A
-	------------------------------------------------------------------
-
 */
 
 void	ft_prep(t_list **head_a, t_lim *piv)
@@ -113,10 +103,7 @@ void	ft_prep(t_list **head_a, t_lim *piv)
 
 	tmp = (*head_a);
 	while (tmp->pos != piv->old_pivot + 1)
-	{
-		// printf("iter=%d  pos=%d  old=%d\n", piv->iter, tmp->pos, piv->old_pivot);	
 		tmp = tmp->next;
-	}
 	pos = ft_get_pos(head_a, tmp->content);
 	size = ft_lstsize((*head_a));
 	if (pos <= size / 2)
@@ -162,41 +149,4 @@ void	ft_pusher(t_list **head_a, t_list **head_b, int value)
 	}
 	if ((*head_a)->next)
 		ft_push_b(head_a, head_b);
-}
-
-int	ft_get_pos(t_list **head, int value)
-{
-	t_list	*tmp;
-	int		pos;
-
-	pos = 1;
-	tmp = (*head);
-	while (tmp->content != value)
-	{
-		tmp = tmp->next;
-		pos++;
-	}
-	return (pos);
-}
-
-void	ft_get_final_pos(t_list **head, int i)
-{
-	t_list	*tmp;
-	int		current;
-
-	tmp = (*head);
-	while (tmp->pos)
-		tmp = tmp->next;
-	current = tmp->content;
-	tmp = tmp->next;
-	while (tmp)
-	{
-		if (current > tmp->content && !tmp->pos)
-			current = tmp->content;
-		tmp = tmp->next;
-	}
-	tmp = (*head);
-	while (tmp->content != current)
-		tmp = tmp->next;
-	tmp->pos = i;
 }
