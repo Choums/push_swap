@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 19:35:45 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/21 19:48:51 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/21 21:46:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_get_final_pos(t_list **head, int i)
 	int		current;
 
 	tmp = (*head);
-	while (tmp->pos)
+	while (tmp->pos && )
 		tmp = tmp->next;
 	current = tmp->content;
 	tmp = tmp->next;
