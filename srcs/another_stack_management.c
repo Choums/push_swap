@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   another_stack_management.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:25:18 by root              #+#    #+#             */
-/*   Updated: 2022/03/01 16:44:26 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/22 20:08:57 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_rotate_a(t_list **head_a)
+void	ft_rotate_a(t_list **head_a, int db)
 {
 	t_list	*tmp;
 	int		swap;
@@ -34,10 +34,11 @@ void	ft_rotate_a(t_list **head_a)
 		tmp = tmp->next;
 		size--;
 	}
-	ft_print(RA);
+	if (!db)
+		ft_print(RA);
 }
 
-void	ft_rotate_b(t_list **head_b)
+void	ft_rotate_b(t_list **head_b, int db)
 {
 	t_list	*tmp;
 	int		swap;
@@ -57,17 +58,18 @@ void	ft_rotate_b(t_list **head_b)
 		tmp = tmp->next;
 		size--;
 	}
-	ft_print(RB);
+	if (!db)
+		ft_print(RB);
 }
 
 void	ft_rotate_rr(t_list **head_a, t_list **head_b)
 {
-	ft_rotate_a(head_a);
-	ft_rotate_b(head_b);
+	ft_rotate_a(head_a, 1);
+	ft_rotate_b(head_b, 1);
 	ft_print(RR);
 }
 
-void	ft_rev_rotate_a(t_list **head_a)
+void	ft_rev_rotate_a(t_list **head_a, int db)
 {
 	t_list	*tmp;
 	int		swap;
@@ -89,10 +91,11 @@ void	ft_rev_rotate_a(t_list **head_a)
 		tmp = tmp->previous;
 		size--;
 	}
-	ft_print(RRA);
+	if (!db)
+		ft_print(RRA);
 }
 
-void	ft_rev_rotate_b(t_list **head_b)
+void	ft_rev_rotate_b(t_list **head_b, int db)
 {
 	t_list	*tmp;
 	int		swap;
@@ -114,5 +117,6 @@ void	ft_rev_rotate_b(t_list **head_b)
 		tmp = tmp->previous;
 		size--;
 	}
-	ft_print(RRB);
+	if (!db)
+		ft_print(RRB);
 }

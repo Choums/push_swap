@@ -71,7 +71,7 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b)
 	{
 		while (pos > 1 && size > 1)
 		{
-			ft_rotate_b(head_b);
+			ft_rotate_b(head_b, 0);
 			pos--;
 		}
 	}
@@ -79,7 +79,7 @@ void	ft_sortin_b(t_list **head_a, t_list **head_b)
 	{
 		while (pos <= size && size > 1)
 		{
-			ft_rev_rotate_b(head_b);
+			ft_rev_rotate_b(head_b, 0);
 			pos++;
 		}
 	}
@@ -110,7 +110,7 @@ void	ft_prep(t_list **head_a, t_lim *piv)
 	{
 		while (pos > 1 && size > 1)
 		{
-			ft_rotate_a(head_a);
+			ft_rotate_a(head_a, 0);
 			pos--;
 		}
 	}
@@ -118,7 +118,7 @@ void	ft_prep(t_list **head_a, t_lim *piv)
 	{
 		while (pos <= size && size > 1)
 		{
-			ft_rev_rotate_a(head_a);
+			ft_rev_rotate_a(head_a, 0);
 			pos++;
 		}
 	}
@@ -135,7 +135,7 @@ void	ft_pusher(t_list **head_a, t_list **head_b, int value)
 	{
 		while (pos > 1 && size > 1)
 		{
-			ft_rotate_a(head_a);
+			ft_rotate_a(head_a, 0);
 			pos--;
 		}
 	}
@@ -143,7 +143,7 @@ void	ft_pusher(t_list **head_a, t_list **head_b, int value)
 	{
 		while (pos <= size && size > 1)
 		{
-			ft_rev_rotate_a(head_a);
+			ft_rev_rotate_a(head_a, 0);
 			pos++;
 		}
 	}

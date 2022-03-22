@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/21 19:41:27 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/22 20:07:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,19 @@ void	ft_err(void);
 void	ft_print(char *msg); //A supp.
 t_list	*ft_init_stack(char **value, int size);
 
-void	ft_swap_a(t_list **head_a);
-void	ft_swap_b(t_list **head_b);
-void	ft_swap_ss(t_list **head_a, t_list **headb);
+void	ft_swap_a(t_list **head_a, int db);
+void	ft_swap_b(t_list **head_b, int db);
+void	ft_swap_ss(t_list **head_a, t_list **head_b);
 
 void	ft_push_a(t_list **head_a, t_list **head_b);
 void	ft_push_b(t_list **head_a, t_list **head_b);
 
-void	ft_rotate_a(t_list **head_a);
-void	ft_rotate_b(t_list **head_b);
+void	ft_rotate_a(t_list **head_a, int db);
+void	ft_rotate_b(t_list **head_b, int db);
 void	ft_rotate_rr(t_list **head_a, t_list **head_b);
-void	ft_rev_rotate_a(t_list **head_a);
-void	ft_rev_rotate_b(t_list **head_b);
+void	ft_rev_rotate_a(t_list **head_a, int db);
+void	ft_rev_rotate_b(t_list **head_b, int db);
+void	ft_rev_rotate_rrr(t_list **head_a, t_list **head_b);
 
 void	ft_lil_sort(t_list **head_a);
 void	ft_fiv_sort(t_list **head_a, t_list **head_b);

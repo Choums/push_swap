@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 19:35:45 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/21 23:22:40 by root             ###   ########.fr       */
+/*   Updated: 2022/03/22 20:06:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,11 @@ void	ft_init_pivot(int size, t_lim *piv)
 {
 	piv->iter = 1;
 	piv->old_pivot = size;
+}
+
+void	ft_rev_rotate_rrr(t_list **head_a, t_list **head_b)
+{
+	ft_rev_rotate_a(head_a, 1);
+	ft_rev_rotate_a(head_b, 1);
+	ft_print(RRR);
 }

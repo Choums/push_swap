@@ -26,17 +26,17 @@ void	ft_lil_sort(t_list **head_a)
 	size = ft_lstsize((*head_a));
 	pos = ft_get_smol(head_a);
 	if (size == 2 && (*head_a)->content > (*head_a)->next->content)
-		ft_swap_a(head_a);
+		ft_swap_a(head_a, 0);
 	else if (size == 3)
 	{
 		if (pos == 3)
-			ft_rev_rotate_a(head_a);
+			ft_rev_rotate_a(head_a, 0);
 		else if (pos == 2)
-			ft_swap_a(head_a);
+			ft_swap_a(head_a, 0);
 		if ((*head_a)->next->content > (*head_a)->next->next->content)
 		{
-			ft_rev_rotate_a(head_a);
-			ft_swap_a(head_a);
+			ft_rev_rotate_a(head_a, 0);
+			ft_swap_a(head_a, 0);
 		}
 	}
 }
@@ -82,7 +82,7 @@ void	ft_fiv_prep(t_list **head_a, t_list **head_b)
 	{
 		while (pos > 1 && size > 1)
 		{
-			ft_rotate_a(head_a);
+			ft_rotate_a(head_a, 0);
 			pos--;
 		}
 	}
@@ -90,7 +90,7 @@ void	ft_fiv_prep(t_list **head_a, t_list **head_b)
 	{
 		while (pos <= size && size > 1)
 		{
-			ft_rev_rotate_a(head_a);
+			ft_rev_rotate_a(head_a, 0);
 			pos++;
 		}
 	}
