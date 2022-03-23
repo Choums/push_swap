@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:02:36 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/22 20:07:35 by root             ###   ########.fr       */
+/*   Updated: 2022/03/23 12:30:51 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> // A supp.
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
@@ -45,7 +44,7 @@ int		ft_check_args(char **av);
 int		ft_check_dup(char **av, char *num, size_t pos);
 void	ft_lstfree(t_list **head_a, t_list **head_b);
 void	ft_err(void);
-void	ft_print(char *msg); //A supp.
+void	ft_print(char *msg);
 t_list	*ft_init_stack(char **value, int size);
 
 void	ft_swap_a(t_list **head_a, int db);
